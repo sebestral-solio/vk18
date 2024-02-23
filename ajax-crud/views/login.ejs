@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/SochavaAG/example-mycode/master/_common/css/reset.css">
+    <link rel="stylesheet" href="/stylesheets/boxstyle.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        a{
+        margin-top: 10px;
+            color: #007bff;
+            text-decoration: none;
+            display: inline-block;
+        }
+        a.forgot{
+            margin-right: 25px;
+           margin-top: 10px;
+            color: #007bff;
+            text-decoration: none;
+            display: inline-block;
+        }
+        a:hover{
+            color:red;
+            text-decoration: underline;
+        }
+
+        .login-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .login-container label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #14bbcd;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color:#4caf50;
+        }
+        .dash {
+            margin-right: 280px;
+        }
+        .dash:hover{
+            text-decoration: none;
+        }
+
+    </style>
+    
+</head>
+<body>
+   
+<div class="login-container">
+
+    <a class="dash" style="font-size:25px" href="index">&#x1F878;</a>
+ 
+    <h2>Login</h2>
+    <form action="#" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        
+
+
+      <!-- <a href="admindash" class="button111"> Login </a> -->
+        <button type="submit">Login</button>
+        <!-- <button type="reset">Reset</button> -->
+    </form>
+    <a class="forgot" href="forgot">Forgot Usename and Password?</a>
+    <a href="signup">Don't have an account? Sign up here</a>
+</div>
+
+
+<script type = "text/javascript">
+    function preventBack(){
+        window.history.forward();
+    }
+    setTimeout("preventBack()",0);
+
+    window.onunload=function(){null};
+    </script>
+    
+</body>
+</html>

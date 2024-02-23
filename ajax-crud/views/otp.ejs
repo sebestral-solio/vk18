@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phone Number OTP Verification</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 90%;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .input-group {
+        margin-bottom: 15px;
+    }
+    .input-group input {
+        width: calc(100% - 20px); /* Adjusted width to accommodate padding */
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box; /* Include padding and border in input's total width */
+    }
+    .btn {
+        display: block;
+        width: 100%;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        text-align: center;
+        transition: background-color 0.3s;
+    }
+    .btn:hover {
+        background-color: #0056b3;
+    }
+    .dash {
+        color: #007bff;
+        font-size: 18px;
+        text-decoration: none;
+        margin-right: 10px;
+    }
+    .dash:hover {
+        color: red;
+    }
+
+    /* Media Queries for responsiveness */
+    @media (min-width: 600px) {
+        .container {
+            max-width: 400px;
+        }
+    }
+</style>
+</head>
+<body>
+    <form action="verify-otp" method="post">
+        <div class="container">
+            <a class="dash" href="forgot">&#x1F878;</a>
+            <h2>Verify OTP</h2>
+            <div class="input-group">
+                <input type="tel" name="otp" id="otp" placeholder="Enter OTP here" required>
+            </div>
+            <button class="btn" type="submit">Verify OTP</button>
+        </div>
+    </form>
+</body>
+</html>
