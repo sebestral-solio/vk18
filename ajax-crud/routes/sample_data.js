@@ -220,9 +220,10 @@ router.post("/action", function(req, res, next){
 		database.query(query, function(error, data){
 
 			res.json({
-				message : 'Data Added'
+				message : 'Data Added',
+				
 			});
-
+			console.log("data added");
 		});
 	}
 
