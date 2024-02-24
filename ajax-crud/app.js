@@ -11,7 +11,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 
-var sample_data = require('./routes/');  //added
+var sample_data = require('./routes');  //added
 
 var app = express();
 
