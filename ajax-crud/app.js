@@ -29,7 +29,7 @@ app.use('/index', indexRouter);
 app.use('/users', usersRouter);
 
 
-app.use('/sample_data', sample_data); // added
+app.use('/', sample_data); // added
 
 
 
