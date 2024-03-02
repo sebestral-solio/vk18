@@ -224,15 +224,15 @@ router.post("/action", function(req, res, next){
 
 		var timings = req.body.timings;
 
-        var fee = req.body.fee;
+	        var fee = req.body.fee;
 
-        var status = req.body.status;
+        	var status = req.body.status;
 
-        var parent_name = req.body.parent_name;
+        	var parent_name = req.body.parent_name;
 
-        var parent_number = req.body.parent_number; 
+        	var parent_number = req.body.parent_number; 
 
-
+                console.log("All Inserted values:",id, name,classs, subjects, timings);
 
 		var query = `
 		INSERT INTO student 
