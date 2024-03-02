@@ -35,7 +35,7 @@ app.all("/api/*", function(req, res, next) {
 });
 
 
-axios.get('http://localhost:3000/')
+axios.get('http://localhost:3000/action')
   .then(response => {
     console.log(response.data);
   })
