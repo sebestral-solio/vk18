@@ -20,14 +20,19 @@ router.use(session({
 }));
 
 
-axios.get('http://localhost:3000/')
+axios.get('http://localhost:3000/action')
   .then(response => {
     console.log(response.data);
   })
   .catch(error => {
     console.error('Error:', error);
   });
-
+router.all("/api/*", function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With");
+  res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
+  return next();
+});
 router.get("/8", function(req, res, next){
 	if (req.session.user) {
 	res.render('sample_data', {title : 'Class I To VIII'});
