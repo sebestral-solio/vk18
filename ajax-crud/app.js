@@ -14,15 +14,12 @@ var usersRouter = require('./routes/users');
 
 const axios = require('axios');
 var sample_data = require('./routes/sample_data');  //added
-var xhr = new XMLHttpRequest();
+
 var app = express();
 app.use(cors({
   credentials: true,
 }));
 
-xhr.open('GET', 'http://localhost:3000/', true);
-xhr.withCredentials = true;
-xhr.send(null);
 
 
 
