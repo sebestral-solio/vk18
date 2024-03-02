@@ -4,13 +4,14 @@ var session = require('express-session');
 var router = express.Router();
 var database = require('../database');
 const cors = require('cors');
-const axios = require('axios');
+
 
 
 router.use(cors({
-  credentials: true,
+  origin: 'http://localhost:3000', // Replace with your allowed origin
+  methods: 'GET,POST', // Specify allowed methods
+  credentials: true // Allow sending cookies
 }));
-
 
 
 router.use(session({
@@ -20,13 +21,7 @@ router.use(session({
 }));
 
 
-axios.get('http://localhost:3000/action')
-  .then(response => {
-    console.log(response.data);
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
+
 
 
 router.all("/api/*", function(req, res, next) {
