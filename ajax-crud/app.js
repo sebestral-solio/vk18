@@ -12,12 +12,15 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-const axios = require('axios');
+
 var sample_data = require('./routes/sample_data');  //added
 
 var app = express();
+
 app.use(cors({
-  credentials: true,
+  origin: 'http://localhost:3000/action', // Replace with your allowed origin
+  methods: 'GET,POST', // Specify allowed methods
+  credentials: true // Allow sending cookies
 }));
 
 app.all("/api/*", function(req, res, next) {
@@ -35,13 +38,7 @@ app.all("/api/*", function(req, res, next) {
 });
 
 
-axios.get('http://localhost:3000/action')
-  .then(response => {
-    console.log(response.data);
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
