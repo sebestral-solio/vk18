@@ -4,8 +4,16 @@ var session = require('express-session');
 var router = express.Router();
 var database = require('../database');
 const cors = require('cors');
+var xhr = new XMLHttpRequest();
 
-router.use(cors());
+app.use(cors({
+  credentials: true,
+}));
+
+xhr.open('GET', 'http://localhost:3000/', true);
+xhr.withCredentials = true;
+xhr.send(null);
+
 router.use(session({
     secret: 'apple mango orange', // Set a secret key for session encryption
     resave: false,
