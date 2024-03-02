@@ -5,15 +5,13 @@ var router = express.Router();
 var database = require('../database');
 const cors = require('cors');
 const axios = require('axios');
-var xhr = new XMLHttpRequest();
+
 
 app.use(cors({
   credentials: true,
 }));
 
-xhr.open('GET', 'http://localhost:3000/', true);
-xhr.withCredentials = true;
-xhr.send(null);
+
 
 router.use(session({
     secret: 'apple mango orange', // Set a secret key for session encryption
