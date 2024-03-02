@@ -8,7 +8,7 @@ const cors = require('cors');
 
 
 router.use(cors({
-  origin: 'http://localhost:3000', // Replace with your allowed origin
+  origin: 'http://localhost:3000/action', // Replace with your allowed origin
   methods: 'GET,POST', // Specify allowed methods
   credentials: true // Allow sending cookies
 }));
