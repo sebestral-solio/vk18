@@ -193,7 +193,7 @@ router.get('/forgot',  (req, res) => {
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
+console.log("www");
 //8th student
 router.post("/action", function(req, res, next){
 
@@ -234,12 +234,16 @@ router.post("/action", function(req, res, next){
 
                 console.log("All Inserted values:",id, name,classs, subjects, timings);
                 
-		database.query("INSERT INTO student (id,name, classs, subjects, timings, fee, status, parent_name, parent_number) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",[id,name,classs,subjects,timings,fee,status,parent_name,parent_number], function(error, data){
+		database.query("INSERT INTO student (id,name,classs,subjects,timings,fee,status,parent_name,parent_number) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", [id,name,classs,subjects,timings,fee,status,parent_name,parent_number], (err, result) => {
+		if (err){
+			res.json({ message: err });
+		}
+		else{
 			res.json({
-				message : 'Data Added',
+				message : 'Data Added'
 			});
-			console.log("data added");
-		});       
+			}
+		}); 
 	}
 		// var query = `
 		// INSERT INTO student 
@@ -281,13 +285,13 @@ router.post("/action", function(req, res, next){
 
 		var timings = req.body.timings;
 
-        var fee = req.body.fee;
-
-        var status = req.body.status;
-
-        var parent_name = req.body.parent_name;
-
-        var parent_number = req.body.parent_number;
+	        var fee = req.body.fee;
+	
+	        var status = req.body.status;
+	
+	        var parent_name = req.body.parent_name;
+	
+	        var parent_number = req.body.parent_number;
 
 		var query = `
 		UPDATE student 
@@ -295,10 +299,10 @@ router.post("/action", function(req, res, next){
 		classs = "${classs}", 
 		subjects = "${subjects}", 
 		timings = "${timings}" ,
-        fee = "${fee}",
-        status = "${status}",
-        parent_name = "${parent_name}",
-        parent_number = "${parent_number}"
+	        fee = "${fee}",
+	        status = "${status}",
+	        parent_name = "${parent_name}",
+	        parent_number = "${parent_number}"
 		WHERE id = "${id}"
 		`;
 
