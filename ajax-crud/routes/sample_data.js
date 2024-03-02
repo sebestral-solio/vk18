@@ -233,22 +233,28 @@ router.post("/action", function(req, res, next){
         	var parent_number = req.body.parent_number; 
 
                 console.log("All Inserted values:",id, name,classs, subjects, timings);
-
-		var query = `
-		INSERT INTO student 
-		(id,name, classs, subjects, timings, fee, status, parent_name, parent_number) 
-		VALUES ("${id}","${name}", "${classs}", "${subjects}", "${timings}", "${fee}", "${status}", "${parent_name}", "${parent_number}")
-		`;
-
-		database.query(query, function(error, data){
-
+                
+		database.query("INSERT INTO student (id,name, classs, subjects, timings, fee, status, parent_name, parent_number) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",[id,name,classs,subjects,timings,fee,status,parent_name,parent_number], function(error, data){
 			res.json({
 				message : 'Data Added',
-				
 			});
 			console.log("data added");
-		});
+		});       
 	}
+		// var query = `
+		// INSERT INTO student 
+		// (id,name, classs, subjects, timings, fee, status, parent_name, parent_number) 
+		// VALUES ("${id}","${name}", "${classs}", "${subjects}", "${timings}", "${fee}", "${status}", "${parent_name}", "${parent_number}")
+		// `;
+
+
+		// database.query(query, function(error, data){
+		// 	res.json({
+		// 		message : 'Data Added',
+				
+		// 	});
+		// 	console.log("data added");
+		// });
 
 	if(action == 'fetch_single')
 	{
