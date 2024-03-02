@@ -37,7 +37,7 @@ router.all("/api/*", function(req, res, next) {
 });
 
 
-app.all("/api/*", function(req, res, next) {
+router.all("/api/*", function(req, res, next) {
   if (req.method.toLowerCase() !== "options") {
     return next();
   }
