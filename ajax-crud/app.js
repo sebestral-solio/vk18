@@ -23,6 +23,17 @@ app.use(cors({
 xhr.open('GET', 'http://localhost:3000/', true);
 xhr.withCredentials = true;
 xhr.send(null);
+
+const axios = require('axios');
+
+axios.get('http://localhost:3000/')
+  .then(response => {
+    console.log(response.data);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
