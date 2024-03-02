@@ -12,9 +12,15 @@ var usersRouter = require('./routes/users');
 
 
 var sample_data = require('./routes/sample_data');  //added
-
+var xhr = new XMLHttpRequest();
 var app = express();
-app.use(cors());
+app.use(cors({
+  credentials: true,
+}));
+
+xhr.open('GET', 'http://localhost:3000/', true);
+xhr.withCredentials = true;
+xhr.send(null);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
