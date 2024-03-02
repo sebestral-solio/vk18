@@ -17,11 +17,7 @@ var sample_data = require('./routes/sample_data');  //added
 
 var app = express();
 
-app.use(cors({
-  origin: 'http://localhost:3000/action', // Replace with your allowed origin
-  methods: 'GET,POST', // Specify allowed methods
-  credentials: true // Allow sending cookies
-}));
+app.use(cors());
 
 app.all("/api/*", function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
