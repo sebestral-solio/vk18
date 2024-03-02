@@ -22,6 +22,13 @@ router.use(session({
 }));
 
 
+axios.get('http://localhost:3000/')
+  .then(response => {
+    console.log(response.data);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
 
 router.get("/8", function(req, res, next){
 	if (req.session.user) {
