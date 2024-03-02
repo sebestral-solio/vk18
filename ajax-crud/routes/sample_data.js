@@ -198,7 +198,7 @@ console.log("www");
 router.post("/action", function(req, res, next){
 
 	var action = req.body.action;
-
+console.log("wowwww");
 	if(action == 'fetch')
 	{
 		var query = "SELECT * FROM student ORDER BY id ASC";
@@ -259,7 +259,7 @@ router.post("/action", function(req, res, next){
 			});
 			console.log("data added");
 		});
-
+	}
 	if(action == 'fetch_single')
 	{
 		var id = req.body.id;
