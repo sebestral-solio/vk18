@@ -12,7 +12,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-
+const axios = require('axios');
 var sample_data = require('./routes/sample_data');  //added
 var xhr = new XMLHttpRequest();
 var app = express();
@@ -24,7 +24,7 @@ xhr.open('GET', 'http://localhost:3000/', true);
 xhr.withCredentials = true;
 xhr.send(null);
 
-const axios = require('axios');
+
 
 axios.get('http://localhost:3000/')
   .then(response => {
