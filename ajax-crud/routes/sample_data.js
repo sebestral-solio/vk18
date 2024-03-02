@@ -7,7 +7,7 @@ const cors = require('cors');
 const axios = require('axios');
 
 
-app.use(cors({
+router.use(cors({
   credentials: true,
 }));
 
