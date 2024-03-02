@@ -4,6 +4,7 @@ var session = require('express-session');
 var router = express.Router();
 var database = require('../database');
 const cors = require('cors');
+const axios = require('axios');
 var xhr = new XMLHttpRequest();
 
 app.use(cors({
