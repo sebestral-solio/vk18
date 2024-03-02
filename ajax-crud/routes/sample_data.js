@@ -234,31 +234,31 @@ router.post("/action", function(req, res, next){
 
                 console.log("All Inserted values:",id, name,classs, subjects, timings);
                 
-		database.query("INSERT INTO student (id,name,classs,subjects,timings,fee,status,parent_name,parent_number) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", [id,name,classs,subjects,timings,fee,status,parent_name,parent_number], (err, result) => {
-		if (err){
-			res.json({ message: err });
-		}
-		else{
+	// 	database.query("INSERT INTO student (id,name,classs,subjects,timings,fee,status,parent_name,parent_number) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", [id,name,classs,subjects,timings,fee,status,parent_name,parent_number], (err, result) => {
+	// 	if (err){
+	// 		res.json({ message: err });
+	// 	}
+	// 	else{
+	// 		res.json({
+	// 			message : 'Data Added'
+	// 		});
+	// 		}
+	// 	}); 
+	// }
+		var query = `
+		INSERT INTO student 
+		(id,name, classs, subjects, timings, fee, status, parent_name, parent_number) 
+		VALUES ("${id}","${name}", "${classs}", "${subjects}", "${timings}", "${fee}", "${status}", "${parent_name}", "${parent_number}")
+		`;
+
+
+		database.query(query, function(error, data){
 			res.json({
-				message : 'Data Added'
-			});
-			}
-		}); 
-	}
-		// var query = `
-		// INSERT INTO student 
-		// (id,name, classs, subjects, timings, fee, status, parent_name, parent_number) 
-		// VALUES ("${id}","${name}", "${classs}", "${subjects}", "${timings}", "${fee}", "${status}", "${parent_name}", "${parent_number}")
-		// `;
-
-
-		// database.query(query, function(error, data){
-		// 	res.json({
-		// 		message : 'Data Added',
+				message : 'Data Added',
 				
-		// 	});
-		// 	console.log("data added");
-		// });
+			});
+			console.log("data added");
+		});
 
 	if(action == 'fetch_single')
 	{
